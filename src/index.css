@@ -1,0 +1,143 @@
+:root {
+  --text: hsl(169, 82%, 27%);
+  --text-h: hsl(187, 24%, 22%);
+  --clr-bg: hsl(0, 0%, 100%);
+  --clr-error: hsl(0, 66%, 54%);
+  --clr-grey-500: hsl(186, 15%, 59%);
+  --clr-green-200: hsl(148, 38%, 91%);
+
+  --ff-kar: "Karla", sans-serif;
+  --fs-300: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
+  --fs-400: clamp(1rem, 0.9583rem + 0.4167vw, 1.25rem);
+  --fs-600: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.ff-karla {
+  font-family: var(--ff-kar);
+}
+
+.text-h {
+  color: var(--text-h);
+}
+
+.font-lg {
+  font-size: var(--fs-600);
+  font-weight: 700;
+}
+
+.container {
+  width: min(90%, 600px);
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
+
+.py-1 {
+  padding-block: clamp(0.5rem, 0.4167rem + 0.2083vw, 1rem);
+}
+.mg-1 {
+  margin-block: clamp(0.5rem, 0.4167rem + 0.2083vw, 1rem);
+}
+
+.py-2 {
+  padding-block: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+}
+.mg-2 {
+  margin-block: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+}
+
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-2 {
+  gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+}
+
+form {
+  min-height: 100vh;
+  margin-block: 2rem;
+}
+
+label > span {
+  display: inline-flex;
+}
+
+.flex-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  width: 100%;
+}
+
+input {
+  /* width: 100%; */
+  padding: 0.75rem;
+  border: 1px solid var(--clr-grey-500);
+  border-radius: 0.5rem;
+}
+
+.query-field {
+  padding-block-end: 0.5rem;
+  display: inline-block;
+}
+
+.query-labels > label {
+  border: 1px solid var(--clr-grey-500);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="radio"] {
+  opacity: 0.2;
+  width: 1rem;
+}
+
+input:focus,
+input:focus-visible {
+  outline: 1px solid var(--text);
+}
+
+.consent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--text);
+  color: var(--clr-bg);
+  font-size: var(--fs-400);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (min-width: 400px) {
+  .flex-field {
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
