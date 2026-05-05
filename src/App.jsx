@@ -72,9 +72,8 @@ function App() {
 
     const timer = setTimeout(() => {
       setSubmittedForm(null);
-
-      return () => clearTimeout(timer);
     }, 3000);
+    return () => clearTimeout(timer);
   }, [submittedForm]);
 
   return (
@@ -97,7 +96,9 @@ function App() {
                 />
               </label>
               {formErrors.firstName && (
-                <p className="error">{formErrors.firstName}</p>
+                <p className="error" role="alert">
+                  {formErrors.firstName}
+                </p>
               )}
             </div>
             <div>
@@ -113,7 +114,9 @@ function App() {
                 />
               </label>
               {formErrors.lastName && (
-                <p className="error">{formErrors.lastName}</p>
+                <p className="error" role="alert">
+                  {formErrors.lastName}
+                </p>
               )}
             </div>
           </div>
@@ -130,7 +133,11 @@ function App() {
                 className={formErrors.email ? "input error" : "input"}
               />
             </label>
-            {formErrors.email && <p className="error">{formErrors.email}</p>}
+            {formErrors.email && (
+              <p className="error" role="alert">
+                {formErrors.email}
+              </p>
+            )}
           </div>
 
           <div className="py-1">
@@ -160,7 +167,9 @@ function App() {
               </label>
             </div>
             {formErrors.queryType && (
-              <p className="error">{formErrors.queryType}</p>
+              <p className="error" role="alert">
+                {formErrors.queryType}
+              </p>
             )}
           </div>
 
@@ -177,7 +186,9 @@ function App() {
               ></textarea>
             </label>
             {formErrors.message && (
-              <p className="error">{formErrors.message}</p>
+              <p className="error" role="alert">
+                {formErrors.message}
+              </p>
             )}
           </div>
 
@@ -193,7 +204,9 @@ function App() {
               I consent to being contacted by the team *
             </label>
             {formErrors.consent && (
-              <p className="error">{formErrors.consent}</p>
+              <p className="error" role="alert">
+                {formErrors.consent}
+              </p>
             )}
           </div>
 
