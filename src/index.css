@@ -7,7 +7,7 @@
   --clr-green-200: hsl(148, 38%, 91%);
 
   --ff-kar: "Karla", sans-serif;
-  --fs-300: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
+  --fs-300: clamp(0.75rem, 0.8333rem + 0.2083vw, 0.9rem);
   --fs-400: clamp(1rem, 0.9583rem + 0.4167vw, 1.25rem);
   --fs-600: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
 }
@@ -36,7 +36,14 @@
 .container {
   width: min(90%, 600px);
   margin: 0 auto;
-  padding-inline: 1rem;
+  padding: 1rem 2rem;
+  /* box-shadow: inset 3px 3px 2px 1px var(--clr-grey-500); */
+}
+
+.form-wrapper {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 10px 15px rgba(0, 0, 0, 0.15);
 }
 
 .py-1 {
@@ -76,6 +83,9 @@ label > span {
 .flex-field {
   display: flex;
   flex-direction: column;
+}
+
+.flex-field > div {
   width: 100%;
 }
 
@@ -83,11 +93,31 @@ label {
   width: 100%;
 }
 
-input {
+.input {
   /* width: 100%; */
   padding: 0.75rem;
   border: 1px solid var(--clr-grey-500);
   border-radius: 0.5rem;
+  outline: none;
+}
+
+.input[type="radio"] {
+  opacity: 0.2;
+  width: 1rem;
+}
+
+.input[type="radio"]:checked {
+  background-color: var(--text);
+}
+
+.input:focus,
+.input:focus-visible {
+  border-color: var(--text);
+}
+
+.input.error {
+  border-color: var(--clr-error);
+  outline: none;
 }
 
 .query-field {
@@ -95,25 +125,25 @@ input {
   display: inline-block;
 }
 
-.query-labels > label {
-  border: 1px solid var(--clr-grey-500);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  width: 100%;
-
+.radio-card {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 10px;
+  padding: 1rem;
+  border: 1px solid var(--clr-grey-500);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
-input[type="radio"] {
-  opacity: 0.2;
-  width: 1rem;
+.radio-card input[type="radio"] {
+  accent-color: var(--text); /* modern browsers */
 }
 
-input:focus,
-input:focus-visible {
-  outline: 1px solid var(--text);
+.radio-card:has(input:checked) {
+  background-color: var(--clr-green-200);
+  border-color: var(--text);
+  color: var(--text-h);
 }
 
 .consent {
@@ -133,10 +163,42 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: var(--text-h);
+}
+
+.error {
+  color: var(--clr-error);
+  font-size: var(--fs-300);
+  margin-top: 0.25rem;
+}
+
+.submitted-data-card {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 2rem;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 0.5rem;
+  background-color: var(--text-h);
+  color: var(--clr-bg);
+  font-size: var(--fs-300);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 @media (min-width: 400px) {
   .flex-field {
     flex-direction: row;
-    /* align-items: center; */
+
     justify-content: space-between;
     gap: 1rem;
   }
