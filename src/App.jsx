@@ -190,9 +190,7 @@ function App() {
                 id="consent"
                 checked={formData.consent}
               />
-              <span className="consent-text">
-                I consent to being contacted by the team *
-              </span>
+              I consent to being contacted by the team *
             </label>
             {formErrors.consent && (
               <p className="error">{formErrors.consent}</p>
