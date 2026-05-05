@@ -190,7 +190,7 @@ function App() {
                 id="consent"
                 checked={formData.consent}
               />
-              <span className="query-field">
+              <span className="consent-text">
                 I consent to being contacted by the team *
               </span>
             </label>
